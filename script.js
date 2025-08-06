@@ -99,20 +99,20 @@ contactForm.addEventListener('submit', (e) => {
     
     // Basic validation
     if (!name || !email || !subject || !message) {
-        showNotification('Bitte füllen Sie alle Felder aus.', 'error');
+        showNotification('Please fill out all fields.', 'error');
         return;
     }
-    
+
     if (!isValidEmail(email)) {
-        showNotification('Bitte geben Sie eine gültige E-Mail-Adresse ein.', 'error');
+        showNotification('Please enter a valid email address.', 'error');
         return;
     }
-    
+
     // Simulate form submission
-    showNotification('Nachricht wird gesendet...', 'info');
-    
+    showNotification('Sending message...', 'info');
+
     setTimeout(() => {
-        showNotification('Vielen Dank für Ihre Nachricht! Ich werde mich bald bei Ihnen melden.', 'success');
+        showNotification('Thank you for your message! I will get back to you soon.', 'success');
         contactForm.reset();
     }, 2000);
 });
@@ -296,7 +296,7 @@ function createLoadingScreen() {
     loadingScreen.innerHTML = `
         <div class="loading-content">
             <div class="loading-spinner"></div>
-            <p>Website wird geladen...</p>
+            <p>Loading website...</p>
         </div>
     `;
     
@@ -306,7 +306,7 @@ function createLoadingScreen() {
         left: 0;
         width: 100%;
         height: 100%;
-        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        background: linear-gradient(135deg, #0078f2 0%, #00a4e4 100%);
         display: flex;
         justify-content: center;
         align-items: center;
@@ -423,7 +423,7 @@ class Chatbot {
     constructor() {
         this.isOpen = false;
         this.messages = [];
-        this.n8nWebhookUrl = 'YOUR_N8N_WEBHOOK_URL_HERE'; // Diese URL müssen Sie durch Ihre n8n Webhook URL ersetzen
+        this.n8nWebhookUrl = 'YOUR_N8N_WEBHOOK_URL_HERE'; // Replace this with your n8n webhook URL
         
         this.initializeElements();
         this.bindEvents();
@@ -567,21 +567,21 @@ class Chatbot {
         }
 
         const data = await response.json();
-        return data.response || data.message || 'Entschuldigung, ich konnte keine Antwort generieren.';
+        return data.response || data.message || 'Sorry, I couldn\'t generate a response.';
     }
 
     getDemoResponse(message) {
         // Demo responses for testing without n8n backend
         const responses = {
-            'hallo': 'Hallo! Schön, dass Sie hier sind. Wie kann ich Ihnen heute helfen?',
-            'hi': 'Hi! Ich bin Jakows AI-Assistent. Womit kann ich Ihnen behilflich sein?',
-            'hilfe': 'Gerne helfe ich Ihnen! Sie können mich zu Jakows Erfahrung, Projekten oder AI-Services fragen.',
-            'ai': 'Jakow ist Experte für KI-Integration und führt STARTPLATZ AI HUB. Er arbeitet mit n8n, Claude und LangChain.',
-            'erfahrung': 'Jakow ist CEO von STARTPLATZ AI HUB und hat umfangreiche Erfahrung in AI-Consulting, Esports Management und Unternehmensgründung.',
-            'kontakt': 'Sie können Jakow unter wbk2020@gmail.com erreichen oder über LinkedIn kontaktieren.',
-            'projekte': 'Jakow leitet das STARTPLATZ AI HUB, hatte Erfolg im Esports-Bereich und gründete die Bonum GmbH.',
-            'startplatz': 'STARTPLATZ AI HUB ist Deutschlands zentrale Anlaufstelle für KI-Bildung unter Jakows Führung.',
-            'danke': 'Gern geschehen! Gibt es noch etwas anderes, womit ich helfen kann?'
+            'hello': 'Hello! Glad you\'re here. How can I assist you today?',
+            'hi': 'Hi! I\'m Jakow\'s AI assistant. How can I help you?',
+            'help': 'Happy to help! You can ask about Jakow\'s experience, projects, or AI services.',
+            'ai': 'Jakow is an expert in AI integration and leads STARTPLATZ AI HUB. He works with n8n, Claude, and LangChain.',
+            'experience': 'Jakow is the CEO of STARTPLATZ AI HUB and has extensive experience in AI consulting, esports management, and founding companies.',
+            'contact': 'You can reach Jakow at wbk2020@gmail.com or via LinkedIn.',
+            'projects': 'Jakow leads STARTPLATZ AI HUB, succeeded in esports, and founded Bonum GmbH.',
+            'startplatz': 'STARTPLATZ AI HUB is Germany\'s central hub for AI education under Jakow\'s leadership.',
+            'thanks': 'You\'re welcome! Is there anything else I can help with?'
         };
 
         const lowerMessage = message.toLowerCase();
@@ -595,10 +595,10 @@ class Chatbot {
 
         // Default responses
         const defaultResponses = [
-            'Das ist eine interessante Frage! Jakow ist Experte für AI-Integration und kann Ihnen sicher weiterhelfen.',
-            'Für spezifische Fragen zu AI-Projekten empfehle ich Ihnen, direkt Kontakt mit Jakow aufzunehmen.',
-            'Jakows Expertise umfasst n8n, Claude und LangChain. Gerne können Sie mehr über seine Projekte erfahren.',
-            'Als CEO von STARTPLATZ AI HUB kann Jakow Ihnen bei AI-Strategien und -Implementierung helfen.'
+            'That\'s an interesting question! Jakow is an expert in AI integration and can certainly assist you.',
+            'For specific questions about AI projects, I recommend contacting Jakow directly.',
+            'Jakow\'s expertise includes n8n, Claude, and LangChain. Feel free to learn more about his projects.',
+            'As CEO of STARTPLATZ AI HUB, Jakow can help you with AI strategies and implementation.'
         ];
 
         return defaultResponses[Math.floor(Math.random() * defaultResponses.length)];
@@ -606,9 +606,9 @@ class Chatbot {
 
     getErrorMessage() {
         const errorMessages = [
-            'Entschuldigung, es gab ein technisches Problem. Bitte versuchen Sie es später erneut.',
-            'Momentan kann ich nicht antworten. Kontaktieren Sie Jakow direkt über wbk2020@gmail.com',
-            'Es scheint ein Verbindungsproblem zu geben. Bitte versuchen Sie es in einem Moment noch einmal.'
+            'Sorry, there was a technical problem. Please try again later.',
+            'I can\'t respond right now. Please contact Jakow directly at wbk2020@gmail.com.',
+            'There seems to be a connection issue. Please try again in a moment.'
         ];
 
         return errorMessages[Math.floor(Math.random() * errorMessages.length)];
@@ -703,5 +703,5 @@ const styleSheet = document.createElement('style');
 styleSheet.textContent = additionalStyles;
 document.head.appendChild(styleSheet);
 
-console.log('🚀 Website erfolgreich geladen! Willkommen auf Ihrer persönlichen Website.');
-console.log('🤖 Chatbot initialisiert! Klicken Sie auf das Chat-Icon, um zu starten.');
+console.log('🚀 Website loaded successfully! Welcome to your personal website.');
+console.log('🤖 Chatbot initialized! Click the chat icon to start.');
